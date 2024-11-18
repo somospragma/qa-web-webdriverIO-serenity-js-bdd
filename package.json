@@ -1,0 +1,31 @@
+{
+  "name": "qa-web-webdriverio-serenity-js-bdd",
+  "type": "module",
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.0.1",
+    "@serenity-js/assertions": "^3.29.5",
+    "@serenity-js/console-reporter": "^3.29.5",
+    "@serenity-js/core": "^3.29.5",
+    "@serenity-js/cucumber": "^3.29.5",
+    "@serenity-js/rest": "^3.29.5",
+    "@serenity-js/serenity-bdd": "^3.29.5",
+    "@serenity-js/web": "^3.29.5",
+    "@serenity-js/webdriverio": "^3.29.5",
+    "@types/node": "^22.9.0",
+    "@wdio/cli": "^8.40.6",
+    "@wdio/local-runner": "^9.2.8",
+    "@wdio/spec-reporter": "^9.2.8",
+    "npm-failsafe": "^1.3.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2"
+  },
+  "scripts": {
+    "serenity": "failsafe serenity:update serenity:clean wdio serenity:report",
+    "serenity:update": "serenity-bdd update",
+    "serenity:clean": "rimraf target",
+    "wdio": "wdio run ./wdio.conf.ts",
+    "serenity:report": "serenity-bdd run --features ./features",
+    "serenity:run": "failsafe serenity:update serenity:clean wdio serenity:report run --",
+    "serenity:run-feature": "serenity-bdd run --spec"
+  }
+}
