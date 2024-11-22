@@ -8,7 +8,6 @@
 
 <h4 align="center">Proyecto base de <a href="https://github.com/karatelabs/karate" target="_blank">Pragma</a>.</h4>
 
-De aca en adelante encontraras las partes del readme con un pequeño ejemplo dentro de cada una de ellas, actualiza su contenido (no olvides borrar esta línea)
 
 <p align="center">
   <a href="https://webdriver.io/">
@@ -29,7 +28,35 @@ De aca en adelante encontraras las partes del readme con un pequeño ejemplo den
 </p>
 
 
-Redacta aca una breve descripcion del proyecto...
+- Este proyecto tiene como objetivo presentar WebdriverIO como una herramienta moderna de automatización para pruebas web en Pragma, destacando su integración con Serenity-JS y Cucumber BDD para facilitar un enfoque estructurado y colaborativo en las pruebas de software.
+
+- Se desarrollaron pruebas automatizadas para demostrar casos prácticos de esta tecnología, cubriendo los siguientes escenarios:
+
+Login: 
+* Dos pruebas que verifican un inicio de sesión exitoso y uno fallido.
+  Automatización de texto dinámico: Un test enfocado en manejar y validar textos dinámicos en el frontend.
+  Automatización de elementos con atributos dinámicos: Un escenario diseñado para interactuar con elementos del DOM cuyos atributos, como el id, cambian dinámicamente.
+  El proyecto incluye archivos estructurados para las pruebas (*.feature), definiciones de pasos (*.steps.ts), y páginas modelo (*.ts), siguiendo principios de diseño orientado a objetos y patrones como Page Object Model. Los archivos principales son:
+
+
+Features:
+
+* dynamic_content.feature
+* login.feature
+* verify_dynamic_text.feature
+  
+Steps:
+
+* dynamic_content.steps.ts
+* login.steps.ts
+* verify_dynamic_text_steps.ts
+
+Pages:
+
+* DynamicContentPage.ts
+* DynamicIdPropertyPage.ts
+* DynamicPropertiesPage.ts
+* LoginPage.ts
 
 <p align="center">
   <a href="#topicos">Topicos</a> •
@@ -110,7 +137,7 @@ Puedes descargar el proyecto en el enlace [download](https://github.com/somospra
 ## Instalación y ejecución
 
 Para ejecutar está aplicación, necesitas [Node-js](https://nodejs.org/dist/v22.11.0/node-v22.11.0-x64.msi) and [npm](https://docs.npmjs.com/cli/v9/commands/npm-install) instalados en tu equipo, ten en cuenta que tu IDE puede gestionar la configuración de un proyecto de cero, siguiendo estos pasos:
-Cuando ejecutes tu primer comando que es este npm init wdio@latest . Entonces debes fijarte te van air saliendo preguntas que debes responder YES o NO
+Cuando ejecutes tu primer comando que es este npm init wdio@latest . Entonces debes fijarte te van a ir saliendo preguntas que debes responder YES o NO
 A continuación te dejo el scripts del paso a paso que vas hacer hasta crear el proyecto
 ```
 en la ruta que quieras instalar tu proyecto ejecuta este comando: npm init wdio@latest .
@@ -155,7 +182,6 @@ Nota:
 
 *   Si deseas correr un archivo feature en especifico debes ejecutar el primer comando de arriba
 *   Si deseas ejecutar todos los archivos features que hay en tu proyecto entoces ejecuta el segundo comando
-* 
 *   Con el comando de npm serenity run ejecutas todos los archivos de feature.
     lo importante es que con este comando si salen los reportes de serenity, con los comandos de arriba no salen los reportes de serenity
 
