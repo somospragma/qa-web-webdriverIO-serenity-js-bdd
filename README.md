@@ -2,7 +2,7 @@
   <br>
   <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://f.hubspotusercontent20.net/hubfs/2829524/Copia%20de%20LOGOTIPO_original-2.png"></a>
   <br>
-  Nombre del Proyecto
+  qa-web-webdriverIO-serenity-js-bdd
   <br>
 </h1>
 
@@ -11,28 +11,23 @@
 De aca en adelante encontraras las partes del readme con un pequeño ejemplo dentro de cada una de ellas, actualiza su contenido (no olvides borrar esta línea)
 
 <p align="center">
-  <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">
-    <img src="https://img.shields.io/badge/Java-11+-orange.svg" alt="Java">
+  <a href="https://webdriver.io/">
+    <img src="https://img.shields.io/badge/WebdriverIO-End--to--End_Testing-red.svg" alt="WebdriverIO">
   </a>
-  <a href="https://www.mysql.com/">
-    <img src="https://img.shields.io/badge/Database-MySQL-blue.svg" alt="MySQL">
+  <a href="https://nodejs.org/">
+    <img src="https://img.shields.io/badge/Node.js-JavaScript_Runtime-brightgreen.svg" alt="Node.js">
   </a>
-  <a href="https://www.postgresql.org/">
-    <img src="https://img.shields.io/badge/Database-PostgreSQL-blue.svg" alt="PostgreSQL">
+  <a href="https://www.typescriptlang.org/">
+    <img src="https://img.shields.io/badge/TypeScript-Strongly_Typed-blue.svg" alt="TypeScript">
   </a>
-  <a href="https://www.w3schools.com/sql/">
-    <img src="https://img.shields.io/badge/SQL-Fundamentals-lightgrey.svg" alt="SQL">
+  <a href="https://serenity-js.org/">
+    <img src="https://img.shields.io/badge/SerenityJS-Behavior--Driven_Development-blueviolet.svg" alt="SerenityJS">
   </a>
   <a href="https://cucumber.io/">
     <img src="https://img.shields.io/badge/Cucumber-BDD-green.svg" alt="Cucumber">
   </a>
-  <a href="https://serenity-bdd.info/">
-    <img src="https://img.shields.io/badge/Serenity-Reporting-blueviolet.svg" alt="Serenity">
-  </a>
-  <a href="https://www.selenium.dev/">
-    <img src="https://img.shields.io/badge/Selenium-Web_Testing-brightgreen.svg" alt="Selenium">
-  </a>
 </p>
+
 
 Redacta aca una breve descripcion del proyecto...
 
@@ -47,133 +42,131 @@ Redacta aca una breve descripcion del proyecto...
   <a href="#roadmap">Roadmap</a>
 </p>
 
-El siguiente GIF es de ejemplo, si tienes uno propio reemplazalo, de lo contrario eliminalo.
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+
+
 
 ## Topicos
 
-* Java
-* Bases de datos
-* SQL
-* Cucumber
-* Serenity
-* Selenium
+* WebdriverI0
+* Serenity-JS
+* Cucumber-BDD
+* TypeScrypt
+* Node-js
 
 ## Tecnologias
 ### This project required:
-- [JDK java] version 16
-- [Serenity] version 4
-- [Gradle] last version
+-  [@cucumber/cucumber] version "^11.0.1",
+-  [@serenity-js/assertions] version "^3.29.5",
+-  [@serenity-js/console-reporter] version "^3.29.5",
+-  [@serenity-js/core] version "^3.29.5",
+-  [@serenity-js/cucumber] version "^3.29.5",
+-  [@serenity-js/rest] version "^3.29.5",
+-  [@serenity-js/serenity-bdd] version "^3.29.5",
+-  [@serenity-js/web] version "^3.29.5",
+-  [@serenity-js/webdriverio] version "^3.29.5",
+-  [@types/node] version "^22.9.0",
+-  [@wdio/cli] version "^8.40.6",
+-  [@wdio/local-runner] version "^9.2.8",
+-  [@wdio/spec-reporter] version "^9.2.8",
+-  [npm-failsafe] version "^1.3.0",
+-  [rimraf] version "^6.0.1",
+-  [ts-node] version "^10.9.2"
 
 Nota: 
-*   Se requiere Selenium posterior a la version 4.11 para la descarga automatica de algunos drivers de los navegadores
-    La version de Serenity implementada (4.0.0) ya incluye Selenium 4.12 lo cual soporta los navegadores a Octubre del 2023
-    si el proyecto presenta problemas relacionados a las version del driver descargado de forma automatica y la version de su 
-    navegador vale la pena revisar que este trabajando con versiones recientes de Serenity y checkear las versiones de Selenium
-    incluidas en dicha version de Serenity
-*   Con Selenium Manager incluido en Serenity 4.0.0 ya no se requiere WebDriverManager de Boni Garcia, razon por la cual ya
-    serenity no lo incluye dentro de sus dependencias
+*   A la fecha 21 de noviembre de 2024, la versión @wdio/cli@9.2.1 no es compatible con Serenity-JS. Para resolver 
+    problemas de instalación y compatibilidad, se recomienda utilizar la versión @wdio/cli@8.40.6, que funciona 
+    correctamente con Serenity-JS.
+
+
 
 ## Consideraciones
-- Para hacer uso de la la utilidad de Base de Datos es importante 
-        que se instacie una Base de datos y se configura en el archivo de configuración ubicado en:
+- Si creas un proyecto desde cero utilizando el comando npm init wdio@latest . y sigues los pasos indicados para
+configurarlo, es importante modificar la sección "scripts" en el archivo package.json para poder ejecutar las pruebas.
+Asegúrate de agregar el siguiente código en la sección "scripts":
 
-            ./src/main/resources/configs/congig.properties
-
-        En las dependencias del proyecto esta agregada la dependencia del driver de MySQL, si no 
-        desea realizar mayores ajustes respecto al motor de BD use MySQL. Si desea usar otro motor, 
-        adiciones la dependencia del driver al build.gradle y configure este driver como observa 
-        se realizo para MySQL en: 
-    
-            ./src/main/java/utils/ConectionBD.java
-        
-        Nota: Algunos motores de BD no requieren agregar la dependencia del driver como Oracle o MSserver
-
+    "scripts": {
+    "serenity": "failsafe serenity:update serenity:clean wdio serenity:report",
+    "serenity:update": "serenity-bdd update",
+    "serenity:clean": "rimraf target",
+    "wdio": "wdio run ./wdio.conf.ts",
+    "serenity:report": "serenity-bdd run --features ./features",
+    "serenity:run": "failsafe serenity:update serenity:clean wdio serenity:report run --",
+    "serenity:run-feature": "serenity-bdd run --spec"
+    }
 ## Descarga
 Para clonar está aplicación desde la linea de comando:
 
 ```bash
-git clone https://github.com/somospragma/qa-transversal-proyecto-base-manejo-base-de-datos-java
-cd qa-transversal-proyecto-base-manejo-base-de-datos-java
+git clone https://github.com/somospragma/qa-web-webdriverIO-serenity-js-bdd.git
+cd qa-web-webdriverIO-serenity-js-bdd
 git remote remove origin
 git remote add origin URL_DE_TU_NUEVO_REPOSITORIO
 git push -u origin master
 ```
 Nota: Asegúrate de reemplazar URL_DE_TU_NUEVO_REPOSITORIO con la URL del repositorio que creaste en tu cuenta de GitHub.
 
-Puedes descargar el proyecto en el enlace [download](https://github.com/somospragma/qa-transversal-proyecto-base-manejo-base-de-datos-java) 
+Puedes descargar el proyecto en el enlace [download](https://github.com/somospragma/qa-web-webdriverIO-serenity-js-bdd/archive/refs/heads/master.zip) 
 
 ## Instalación y ejecución
 
-Para ejecutar está aplicación, necesitas [Gradle](https://gradle.org/install) and [Java JDK](https://www.oracle.com/java/technologies/downloads/) instalados en tu equipo, ten en cuenta que tu IDE puede gestionar la instalación de estos dos requerimientos. Desde la linea de comando:
+Para ejecutar está aplicación, necesitas [Node-js](https://nodejs.org/dist/v22.11.0/node-v22.11.0-x64.msi) and [npm](https://docs.npmjs.com/cli/v9/commands/npm-install) instalados en tu equipo, ten en cuenta que tu IDE puede gestionar la configuración de un proyecto de cero, siguiendo estos pasos:
+Cuando ejecutes tu primer comando que es este npm init wdio@latest . Entonces debes fijarte te van air saliendo preguntas que debes responder YES o NO
+A continuación te dejo el scripts del paso a paso que vas hacer hasta crear el proyecto
+```
+en la ruta que quieras instalar tu proyecto ejecuta este comando: npm init wdio@latest .
+===============================
+🤖 WDIO Configuration Wizard 🧙
+===============================
+
+? A project named "clasespragmawebdriverIO" was detected at "C:\Users\jhon.rojas_pragma\Documents\GitHubProyectosPragma\clasespragmawebdriverIO", correct? Yes
+
+? What type of testing would you like to do? E2E Testing - of Web or Mobile Applications
+? Where is your automation backend located? On my local machine
+? Which environment you would like to automate? Web - web applications in the browser
+? With which browser should we start? Chrome
+? Which framework do you want to use? Cucumber with Serenity/JS (https://serenity-js.org/)
+? Do you want to use a compiler? TypeScript (https://www.typescriptlang.org/)
+? Do you want WebdriverIO to autogenerate some test files? Yes
+? What should be the location of your feature files? C:\Users\jhon.rojas_pragma\Documents\GitHubProyectosPragma\clasespragmawebdriverIO\features\**\*.feature 
+? What should be the location of your step definitions?
+C:\Users\jhon.rojas_pragma\Documents\GitHubProyectosPragma\clasespragmawebdriverIO\features\step-definitions\steps.ts
+? What should be the location of your Serenity/JS Screenplay Pattern library?
+C:\Users\jhon.rojas_pragma\Documents\GitHubProyectosPragma\clasespragmawebdriverIO\serenity
+? Which reporter do you want to use? spec
+? Do you want to add a plugin to your test setup?
+? Would you like to include Visual Testing to your setup? For more information see https://webdriver.io/docs/visual-testing! No
+? Do you want to add a service to your test setup?
+? Do you want me to run `npm install` Yes
 
 ```
-gradle clean build
-```
 
-##  🛠️ Run tests Chrome gradle:
+##  🛠️ Run tests npx wdio run:
 ```
-gradle clean test -Dcontext=chrome -Dwebdriver.driver=chrome
-gradle clean test --info --stacktrace --tests "ruta.nameRunner" -Dcontext=chrome -Dwebdriver.driver=chrome
-gradle clean test -Dcucumber.options="--tags @someTag" -Dcontext=chrome -Dwebdriver.driver=chrome
-gradle clean test -Dcucumber.options="--tags '@someTag or @someTag'" -Dcontext=chrome -Dwebdriver.driver=chrome
-```
+npx wdio run ./wdio.conf.ts --spec ./test/qa-web-webdriverIO-serenity-js-bdd/stepdefinitions/loginSteps.ts
+npx wdio run wdio.conf.ts
 
+```
+##  🛠️ Run tests npm serenity:run:
+```
+npm serenity run
+
+```
 Nota:
 
-*   Si ejecuta en la consola de gradle no debe usar comillas simples '...' para encerrar '-Dwebdriver.driver=chrome'
-*   Si ejecuta en la consola estándar de la máquina quizás si deba utilizar '...' en las porciones del comando que incluyan puntos
-*   Con "./gradlew test ..." ejecuta el gradle compilado del proyecto
-*   Con "gradle test ..." ejecuta el gradle de su maquina, el configurado en las variables de entorno de su sistema operativo
+*   Si deseas correr un archivo feature en especifico debes ejecutar el primer comando de arriba
+*   Si deseas ejecutar todos los archivos features que hay en tu proyecto entoces ejecuta el segundo comando
+* 
+*   Con el comando de npm serenity run ejecutas todos los archivos de feature.
+    lo importante es que con este comando si salen los reportes de serenity, con los comandos de arriba no salen los reportes de serenity
 
-
-### ejemplo
-```
-./gradlew clean test --info --stacktrace --tests "co.com.pragma.runners.CompareImageRunner" -Dcontext=chrome '-Dwebdriver.driver=chrome'
-./gradlew clean test --info --stacktrace --tests "co.com.pragma.runners.LoginRunner" -Dcontext=chrome '-Dwebdriver.driver=chrome'
-```
-
-
-##  🛠️ Run tests Firefox gradle:
-```
-./gradlew clean test -Dcontext=firefox '-Dwebdriver.driver=firefox'
-./gradlew test --tests "runners.RunnerTags" '-Dcontext=firefox -Dwebdriver.driver=firefox'
-```
-### ejemplo
-```
-./gradlew clean test --info --stacktrace --tests "runners.RunnerTags" '-Dcontext=firefox -Dwebdriver.driver=firefox'
-```
-
-## **Run tests in different environments:**
-```
-gradle command... -Denvironment=defaul
-gradle command... -Denvironment=dev
-gradle command... -Denvironment=qa
-gradle command... -Denvironment=prod
-```
-### Note: 
-    - The default environment will be used if no other value is provided
-    - Could modify the environment urls in .../test/resources/serenity.conf
-
-
-## **Run tests in different browser:**
-```
-gradle command... -Dwebdriver.driver=chrome
-gradle command... -Dwebdriver.driver=firefox
-gradle command... -Dwebdriver.driver=edge
-```
 
 
 ## Autores
 
-
-| [<img src="https://gitlab.com/uploads/-/system/user/avatar/13437423/avatar.png?width=400" width=115><br><sub>Mauro L. Ibarra P.</sub>](https://gitlab.com/mauro.ibarrap) <br/> | [<img src="https://secure.gravatar.com/avatar/23b2db02403d79ebd356e8e8356758ec?s=192&d=identicon" width=115><br><sub>Otro autor</sub>](https://gitlab.com/) | 
-:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| [<img src="https://avatars.githubusercontent.com/u/186238159?v=4" width=115><br><sub>Jhon Hader. Rojas C.</sub>](https://gitlab.com/mauro.ibarrap)
 
 
 ## Relacionados
-
-- [proyecto-base-serenity-bdd-screenplay-browsers-and-utilities](https://github.com/somospragma/qa-web-proyecto-base-serenity-bdd-screenplay-browsers-and-utilities)
 
 
 ## Roadmap
